@@ -2,8 +2,8 @@
 Contributors: Denis-de-Bernardy
 Donate link: http://www.semiologic.com/partners/
 Tags: semiologic
-Requires at least: 2.8
-Tested up to: 3.2.1
+Requires at least: 3.1
+Tested up to: 3.5
 Stable tag: trunk
 
 Lets you insert any widget in RSS feeds.
@@ -44,10 +44,15 @@ The [Semiologic forum](http://forum.semiologic.com) is the best place to report 
 == Installation ==
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 
 == Change Log ==
+
+= 2.0.1 =
+
+- WP 3.5 compat
+- Fix PHPDoc errors
 
 = 2.0 =
 
