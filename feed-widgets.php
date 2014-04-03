@@ -3,7 +3,7 @@
 Plugin Name: Feed Widgets
 Plugin URI: http://www.semiologic.com/software/feed-widgets/
 Description: Creates a special sidebar that lets you insert widgets at the end of each post in your RSS feeds. Configure these widgets under <a href="widgets.php">Design / Widgets</a>, by selecting the Feed Widgets sidebar.
-Version: 2.1.1
+Version: 2.2 dev
 Author: Denis de Bernardy & Mike Koepke
 Author URI: http://www.getsemiologic.com
 Text Domain: feed-widgets
@@ -19,8 +19,6 @@ This software is copyright Denis de Bernardy & Mike Koepke, and is distributed u
 **/
 
 
-load_plugin_textdomain('feed-widgets', false, dirname(plugin_basename(__FILE__)) . '/lang');
-
 
 /**
  * feed_widgets
@@ -30,13 +28,86 @@ load_plugin_textdomain('feed-widgets', false, dirname(plugin_basename(__FILE__))
 
 class feed_widgets {
 
-    /**
-  	 * constructor
-  	 **/
+	/**
+	 * Plugin instance.
+	 *
+	 * @see get_instance()
+	 * @type object
+	 */
+	protected static $instance = NULL;
+
+	/**
+	 * URL to this plugin's directory.
+	 *
+	 * @type string
+	 */
+	public $plugin_url = '';
+
+	/**
+	 * Path to this plugin's directory.
+	 *
+	 * @type string
+	 */
+	public $plugin_path = '';
+
+	/**
+	 * Access this plugin’s working instance
+	 *
+	 * @wp-hook plugins_loaded
+	 * @return  object of this class
+	 */
+	public static function get_instance()
+	{
+		NULL === self::$instance and self::$instance = new self;
+
+		return self::$instance;
+	}
+
+
+	/**
+	 * Loads translation file.
+	 *
+	 * Accessible to other classes to load different language files (admin and
+	 * front-end for example).
+	 *
+	 * @wp-hook init
+	 * @param   string $domain
+	 * @return  void
+	 */
+	public function load_language( $domain )
+	{
+		load_plugin_textdomain(
+			$domain,
+			FALSE,
+			$this->plugin_path . 'lang'
+		);
+	}
+
+	/**
+	 * Constructor.
+	 *
+	 *
+	 */
+
 	public function __construct() {
-        add_action('init', array($this, 'panels'), -100);
-        add_filter('the_content', array($this, 'display'), 100);
+		$this->plugin_url    = plugins_url( '/', __FILE__ );
+		$this->plugin_path   = plugin_dir_path( __FILE__ );
+		$this->load_language( 'feed-widgets' );
+
+		add_action( 'plugins_loaded', array ( $this, 'init' ) );
     }
+
+	/**
+	 * init()
+	 *
+	 * @return void
+	 **/
+
+	function init() {
+		// more stuff: register actions and filters
+		add_action('init', array($this, 'panels'), -100);
+        add_filter('the_content', array($this, 'display'), 100);
+	}
 
 	/**
 	 * panels()
@@ -78,4 +149,4 @@ class feed_widgets {
 	} # display()
 } # feed_widgets
 
-$feed_widgets = new feed_widgets();
+$feed_widgets = feed_widgets::get_instance();
