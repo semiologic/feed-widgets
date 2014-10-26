@@ -3,7 +3,7 @@ Contributors: Denis-de-Bernardy, Mike_Koepke
 Donate link: http://www.semiologic.com/partners/
 Tags: semiologic
 Requires at least: 3.1
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: trunk
 
 Lets you insert any widget in RSS feeds.
@@ -48,6 +48,10 @@ The [Semiologic forum](http://forum.semiologic.com) is the best place to report 
 
 
 == Change Log ==
+
+= 2.3 =
+
+- WP 4.0 compat
 
 = 2.2 =
 
