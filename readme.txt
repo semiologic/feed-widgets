@@ -51,6 +51,10 @@ The [Semiologic Support Page](https://www.semiologic.com/support/) is the best p
 
 == Change Log ==
 
+= 2.3.2 =
+
+- Add code to turn deactivate the plugin
+
 = 2.3.1 =
 
 - Development has ceased on this plugin.  Updated source and readme accordingly

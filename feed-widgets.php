@@ -3,7 +3,7 @@
 Plugin Name: Feed Widgets
 Plugin URI: http://www.semiologic.com/software/feed-widgets/
 Description: RETIRED - Creates a special sidebar that lets you insert widgets at the end of each post in your RSS feeds. Configure these widgets under <a href="widgets.php">Design / Widgets</a>, by selecting the Feed Widgets sidebar.
-Version: 2.3.1
+Version: 2.3.2
 Author: Denis de Bernardy & Mike Koepke
 Author URI: http://www.getsemiologic.com
 Text Domain: feed-widgets
@@ -23,6 +23,27 @@ This software is copyright Denis de Bernardy & Mike Koepke, and is distributed u
 * This plugin has been retired.  No further development will occur on it.
 * */
 
+// Disable the plugin
+
+$active_plugins = get_option('active_plugins');
+
+if ( !is_array($active_plugins) )
+{
+	$active_plugins = array();
+}
+
+foreach ( (array) $active_plugins as $key => $plugin )
+{
+	if ( $plugin == 'feed-widgets/feed-widgets.php' )
+	{
+		unset($active_plugins[$key]);
+		break;
+	}
+}
+
+sort($active_plugins);
+
+update_option('active_plugins', $active_plugins);
 
 /**
  * feed_widgets
