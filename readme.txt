@@ -1,10 +1,12 @@
 === Feed Widgets ===
 Contributors: Denis-de-Bernardy, Mike_Koepke
-Donate link: http://www.semiologic.com/partners/
+Donate link: https://www.semiologic.com/donate/
 Tags: semiologic
 Requires at least: 3.1
 Tested up to: 4.0
 Stable tag: trunk
+
+> *This plugin has been retired.  No further development will occur on it.*
 
 Lets you insert any widget in RSS feeds.
 
@@ -38,7 +40,7 @@ Common uses for this plugin include:
 
 = Help Me! =
 
-The [Semiologic forum](http://forum.semiologic.com) is the best place to report issues.
+The [Semiologic Support Page](https://www.semiologic.com/support/) is the best place to report issues.
 
 
 == Installation ==
@@ -48,6 +50,10 @@ The [Semiologic forum](http://forum.semiologic.com) is the best place to report 
 
 
 == Change Log ==
+
+= 2.3.1 =
+
+- Development has ceased on this plugin.  Updated source and readme accordingly
 
 = 2.3 =
 
