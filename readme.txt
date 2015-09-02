@@ -6,12 +6,13 @@ Requires at least: 3.1
 Tested up to: 4.0
 Stable tag: trunk
 
-> *This plugin has been retired.  No further development will occur on it.*
 
 Lets you insert any widget in RSS feeds.
 
 
 == Description ==
+
+> *This plugin has been retired.  No further development will occur on it.*
 
 The Feed Widgets plugin for WordPress lets you insert any widget after each post in your RSS feed.
 
